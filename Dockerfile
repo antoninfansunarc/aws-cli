@@ -1,7 +1,6 @@
 FROM ubuntu:14.04.5
 LABEL maintainer="anton.infant@sunarctechnologies.com"
 
-ENV  
 # built-in packages
 RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends \
