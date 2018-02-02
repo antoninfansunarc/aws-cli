@@ -1,16 +1,9 @@
-FROM alpine:3.6
-RUN apk -v --update add \
-        python \
-        py-pip \
-        groff \
-        less \
-        mailcap \
-        && \
-    pip install --upgrade awscli==1.14.5 s3cmd==2.0.1 python-magic && \
-        ca-certificates \
-        wget \
-    rm /var/cache/apk/*
-VOLUME /root/.aws
+FROM ubuntu:14.04
+
+RUN apt-get update -q
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -qy python-pip groff-base
+RUN pip install awscli \
+                wget 
 VOLUME /project
 WORKDIR /project
 ENTRYPOINT ["aws"]
