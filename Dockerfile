@@ -1,10 +1,18 @@
-FROM ubuntu:14.04
+FROM debian:stable
+FROM ubuntu:14.04.5
+LABEL maintainer="anton.infant@sunarctechnologies.com"
 
-RUN apt-get update -q
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qy python-pip groff-base
-RUN pip install awscli \
-                wget \
-apk add --update openssl
-VOLUME /project
-WORKDIR /project
-ENTRYPOINT ["aws"]
+ENV  
+# built-in packages
+RUN apt-get update \
+    && apt-get install -y --force-yes --no-install-recommends \
+      curl \
+      awscli \
+      wget \
+      python \
+    && apt-get clean \
+    && apt-get autoclean \
+    && apt-get autoremove \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/*
+
