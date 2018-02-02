@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.5
+FROM ubuntu:14.04
 LABEL maintainer="anton.infant@sunarctechnologies.com"
 
 # built-in packages
