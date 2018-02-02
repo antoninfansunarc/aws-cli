@@ -1,4 +1,3 @@
-FROM debian:stable
 FROM ubuntu:14.04.5
 LABEL maintainer="anton.infant@sunarctechnologies.com"
 
